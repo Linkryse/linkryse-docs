@@ -1,0 +1,49 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Linkryse",
+  "logo": {
+    "light": "/logo/linkryse-logo.png",
+    "dark": "/logo/linkryse-logo.png"
+  },
+  "favicon": "/favicon.png",
+  "colors": {
+    "primary": "#0F172A",
+    "light": "#3B82F6",
+    "dark": "#3B82F6"
+  },
+  "topbarLinks": [
+    {
+      "name": "Dashboard",
+      "url": "https://linkryse.com/dashboard"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get API Key",
+    "url": "https://linkryse.com/settings/apikeys"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "quickstart"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/introduction",
+              "api-reference/authentication",
+              "api-reference/tracking"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

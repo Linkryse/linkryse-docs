@@ -1,0 +1,43 @@
+// linkryse-docs/api-reference/tracking.mdx
+---
+title: 'Track Conversion'
+api: 'POST https://linkryse.com/api.php'
+description: 'Send server-side conversion events to Linkryse.'
+---
+
+Use this endpoint to track revenue, leads, or custom events that happen on your backend (e.g., Stripe webhooks).
+
+### Body
+
+<ParamField body="click_id" type="string">
+  The unique ID from the `lr_click_id` cookie. (Required for Public mode)
+</ParamField>
+
+<ParamField body="event_name" type="string" default="conversion">
+  The name of the event (e.g., "purchase", "lead").
+</ParamField>
+
+<ParamField body="amount" type="number" default="0">
+  The revenue amount (e.g., 49.99).
+</ParamField>
+
+<ParamField body="currency" type="string" default="USD">
+  The currency code (e.g., "USD", "EUR").
+</ParamField>
+
+<ParamField body="external_id" type="string">
+  Your internal User ID or Stripe Customer ID. Used for deduplication.
+</ParamField>
+
+### Example Request
+
+```bash
+curl -X POST https://linkryse.com/api.php \
+  -H "Authorization: Bearer lryse_..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event_name": "purchase",
+    "amount": 99.00,
+    "currency": "USD",
+    "external_id": "cus_123"
+  }'
