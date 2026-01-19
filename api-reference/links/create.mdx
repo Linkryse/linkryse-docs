@@ -1,0 +1,54 @@
+---
+title: "Create a link"
+sidebarTitle: "Create a link"
+api: "POST https://linkryse.com/v1/links"
+description: "Create a new short link."
+---
+
+## Body Parameters
+
+<ParamField body="url" type="string" required>
+  The destination URL where the short link will redirect.
+</ParamField>
+
+<ParamField body="domain" type="string">
+  The custom domain for the short link. Defaults to `linkry.se` if not provided.
+</ParamField>
+
+<ParamField body="key" type="string">
+  The custom slug (alias) for the short link. If not provided, a random 7-character key will be generated.
+</ParamField>
+
+<ParamField body="tags" type="array">
+  An array of tags to assign to the link.
+</ParamField>
+
+<ParamField body="publicStats" type="boolean">
+  Whether to enable public statistics for this link. Defaults to `false`.
+</ParamField>
+
+## Response
+
+Returns the created [Link Object](/api-reference/links/object).
+
+## Code Examples
+
+```bash cURL
+curl --request POST \
+  --url https://linkryse.com/v1/links \
+  --header 'Authorization: Bearer sk_live_...' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "url": "https://google.com",
+    "domain": "dub.sh",
+    "key": "search"
+  }'
+```
+
+```javascript Node.js
+const link = await linkryse.links.create({
+  url: 'https://google.com',
+  domain: 'dub.sh',
+  key: 'search'
+});
+```

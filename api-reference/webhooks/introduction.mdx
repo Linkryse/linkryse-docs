@@ -1,0 +1,23 @@
+---
+title: "Introduction"
+sidebarTitle: "Introduction"
+description: "Listen for real-time events from Linkryse."
+---
+
+Webhooks allow you to listen for events on your Linkryse account so you can automatically trigger reactions. 
+
+## How it works
+
+Linkryse uses webhooks to notify your application when an event happens in your account. Webhooks are particularly useful for asynchronous events like when a link is clicked, a lead is captured, or a domain verification status changes.
+
+## Retry Policy
+
+If your server returns a non-200 status code, we will retry the webhook delivery with an exponential backoff strategy:
+- **1st retry**: 1 minute
+- **2nd retry**: 5 minutes
+- **3rd retry**: 30 minutes
+- **4th retry**: 2 hours
+- **5th retry**: 5 hours
+- **6th retry**: 24 hours
+
+After 6 failed attempts, we will disable the webhook endpoint.

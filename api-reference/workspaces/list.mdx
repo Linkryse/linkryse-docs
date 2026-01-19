@@ -1,0 +1,25 @@
+---
+title: "List Workspaces"
+sidebarTitle: "List Workspaces"
+api: "GET https://linkryse.com/v1/workspaces"
+description: "Retrieve a list of all workspaces the authenticated user belongs to."
+---
+
+### Response
+
+<ResponseField name="workspaces" type="array">
+  <Expandable title="Workspace Object">
+    <ResponseField name="id" type="integer">
+      The unique identifier for the workspace.
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      The display name of the workspace.
+    </ResponseField>
+    <ResponseField name="role" type="string">
+      The user's role in this workspace (`owner`, `admin`, `editor`, `viewer`).
+    </ResponseField>
+    <ResponseField name="avatar_url" type="string">
+      URL of the workspace avatar/logo.
+    </ResponseField>
+  </Expandable>
+</ResponseField>

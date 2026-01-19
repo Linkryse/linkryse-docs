@@ -1,0 +1,22 @@
+---
+title: "Add Domain"
+sidebarTitle: "Add Domain"
+api: "POST https://linkryse.com/v1/domains-v2"
+description: "Register a new custom domain for your workspace."
+---
+
+### Body
+
+<ParamField body="domain_name" type="string" required>
+  The domain name you want to add (e.g., `links.example.com`).
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the domain was successfully created.
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message describing the result.
+</ResponseField>

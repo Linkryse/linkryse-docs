@@ -1,0 +1,37 @@
+---
+title: "Verify Signatures"
+sidebarTitle: "Verify Signatures"
+description: "Secure your webhooks by verifying the signature."
+---
+
+Linkryse signs every webhook event it sends to your endpoints. This signature allows you to verify that the request truly came from Linkryse and not a malicious third party.
+
+## The Header
+
+We include a `X-Linkryse-Signature` header in each webhook request. This header contains the HMAC SHA-256 signature of the request body, signed using your webhook signing secret.
+
+## Verification Steps
+
+1.  **Extract the Signature**: Get the `X-Linkryse-Signature` from the headers.
+2.  **Get the Raw Body**: Read the raw request body (as a string/buffer).
+3.  **Calculate HMAC**: Create a SHA-256 HMAC of the raw body using your signing secret.
+4.  **Compare**: Timing-safe compare your calculated signature with the header signature.
+
+## Example Code
+
+```javascript Node.js
+const crypto = require('crypto');
+
+function verifyWebhook(req) {
+  const signature = req.headers['x-linkryse-signature'];
+  const secret = process.env.LINKRYSE_WEBHOOK_SECRET;
+  const body = JSON.stringify(req.body);
+
+  const hash = crypto
+    .createHmac('sha256', secret)
+    .update(body)
+    .digest('hex');
+
+  return signature === hash;
+}
+```

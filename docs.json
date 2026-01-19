@@ -1,49 +1,115 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Linkryse",
-  "logo": {
-    "light": "/logo/linkryse-logo.png",
-    "dark": "/logo/linkryse-logo.png"
+  "name": "Linkryse Developers",
+  "api": {
+    "baseUrl": "https://linkryse.com/v1",
+    "mdx": {
+      "auth": {
+        "method": "bearer"
+      }
+    }
   },
-  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://linkryse.com"
+  },
+  "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0F172A",
+    "primary": "#2563EB",
     "light": "#3B82F6",
-    "dark": "#3B82F6"
+    "dark": "#1D4ED8"
+  },
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/linkryse/linkryse"
   },
   "topbarLinks": [
     {
       "name": "Dashboard",
-      "url": "https://linkryse.com/dashboard"
+      "url": "https://app.linkryse.com"
+    },
+    {
+      "name": "Help Center",
+      "url": "https://help.linkryse.com"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Get API Key",
-    "url": "https://linkryse.com/settings/apikeys"
-  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart"
+              "introduction/welcome",
+              "introduction/authentication",
+              "introduction/errors",
+              "introduction/rate-limits"
             ]
           },
           {
-            "group": "API Reference",
+            "group": "Links API",
             "pages": [
-              "api-reference/introduction",
-              "api-reference/authentication",
-              "api-reference/tracking"
+              "api-reference/links/object",
+              "api-reference/links/get",
+              "api-reference/links/create",
+              "api-reference/links/update",
+              "api-reference/links/delete"
+            ]
+          },
+          {
+            "group": "Domains API",
+            "pages": [
+              "api-reference/domains/list",
+              "api-reference/domains/create",
+              "api-reference/domains/verify",
+              "api-reference/domains/delete"
+            ]
+          },
+          {
+            "group": "Workspaces API",
+            "pages": [
+              "api-reference/workspaces/list",
+              "api-reference/workspaces/create",
+              "api-reference/workspaces/invite"
+            ]
+          },
+          {
+            "group": "Analytics API",
+            "pages": [
+              "api-reference/analytics/retrieve",
+              "api-reference/analytics/timeseries"
+            ]
+          },
+          {
+            "group": "Webhooks",
+            "pages": [
+              "api-reference/webhooks/introduction",
+              "api-reference/webhooks/verify",
+              "api-reference/webhooks/events"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "guides/qr-code-generator",
+              "guides/export-analytics"
+            ]
+          },
+          {
+            "group": "SDKs",
+            "pages": [
+              "sdks/node"
             ]
           }
         ]
       }
     ]
+  },
+  "footerSocials": {
+    "twitter": "https://twitter.com/linkryse",
+    "github": "https://github.com/linkryse"
   }
 }

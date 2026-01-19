@@ -1,0 +1,21 @@
+---
+title: "Create Workspace"
+sidebarTitle: "Create Workspace"
+api: "POST https://linkryse.com/v1/workspaces"
+description: "Create a new workspace."
+---
+
+### Body
+
+<ParamField body="name" type="string" required>
+  The name of the new workspace.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the workspace was created.
+</ResponseField>
+<ResponseField name="id" type="integer">
+  The ID of the newly created workspace.
+</ResponseField>

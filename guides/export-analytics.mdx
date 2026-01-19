@@ -1,0 +1,44 @@
+---
+title: "Export Analytics"
+description: "How to export your link click data to a CSV file."
+---
+
+This guide demonstrates how to fetch timeseries analytics data from the Linkryse API and convert it into a CSV format suitable for Excel or Google Sheets.
+
+## Prerequisites
+
+-   `json2csv` npm package
+
+```bash
+npm install @linkryse/sdk json2csv
+```
+
+## The Script
+
+```javascript
+const { Linkryse } = require('@linkryse/sdk');
+const { Parser } = require('json2csv');
+const fs = require('fs');
+
+const linkryse = new Linkryse({ apiKey: 'sk_live_...' });
+
+async function exportData() {
+  // 1. Fetch Data (Last 30 Days)
+  const data = await linkryse.analytics.timeseries({
+    linkId: 'link_123',
+    interval: '30d'
+  });
+
+  // 2. Convert to CSV
+  const parser = new Parser({
+    fields: ['start', 'clicks']
+  });
+  const csv = parser.parse(data);
+
+  // 3. Save to File
+  fs.writeFileSync('analytics.csv', csv);
+  console.log('Export complete: analytics.csv');
+}
+
+exportData();
+```

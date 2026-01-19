@@ -1,0 +1,40 @@
+---
+title: "Event Types"
+sidebarTitle: "Event Types"
+description: "List of all event types supported by Linkryse webhooks."
+---
+
+## Link Events
+
+| Event | Description |
+| :--- | :--- |
+| `link.created` | Triggered when a new link is created. |
+| `link.updated` | Triggered when a link is updated. |
+| `link.deleted` | Triggered when a link is deleted. |
+| `link.clicked` | Triggered when a link receives a click (real-time). |
+
+## Domain Events
+
+| Event | Description |
+| :--- | :--- |
+| `domain.verified` | Triggered when a custom domain is successfully verified. |
+| `domain.unverified` | Triggered when a custom domain loses verification. |
+
+## Payload Example
+
+Here is an example payload for the `link.clicked` event:
+
+```json
+{
+  "id": "evt_123456",
+  "type": "link.clicked",
+  "data": {
+    "linkId": "link_123",
+    "url": "https://dub.sh/github",
+    "ip": "203.0.113.1",
+    "country": "US",
+    "ua": "Mozilla/5.0..."
+  },
+  "createdAt": "2023-11-07T14:00:00.000Z"
+}
+```

@@ -1,0 +1,26 @@
+---
+title: "Rate Limits"
+description: "Linkryse API rate limits and restrictions."
+---
+
+The Linkryse API enforces rate limits to ensure stability and fair usage for all customers.
+
+## Limits
+
+| Plan | Rate Limit |
+| :--- | :--- |
+| **Free** | 10 requests / second |
+| **Pro** | 50 requests / second |
+| **Enterprise** | 100+ requests / second |
+
+If you exceed the rate limit, your request will return a `429 Too Many Requests` error.
+
+## Headers
+
+We include headers in every response to help you manage your rate limits:
+
+| Header | Description |
+| :--- | :--- |
+| `X-RateLimit-Limit` | The maximum number of requests you're permitted to make per second. |
+| `X-RateLimit-Remaining` | The number of requests remaining in the current time window. |
+| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |

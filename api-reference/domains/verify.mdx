@@ -1,0 +1,24 @@
+---
+title: "Verify Domain"
+sidebarTitle: "Verify Domain"
+api: "POST https://linkryse.com/v1/domains-v2/{id}/verify"
+description: "Trigger a DNS verification check for a pending domain."
+---
+
+After adding the required DNS records (CNAME and TXT), call this endpoint to verify ownership.
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The ID of the domain to verify.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the domain is now active.
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  Status message (e.g., "Domain verified and active!").
+</ResponseField>

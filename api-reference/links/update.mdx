@@ -1,0 +1,46 @@
+---
+title: "Update a link"
+sidebarTitle: "Update a link"
+api: "PUT https://linkryse.com/v1/links/{linkId}"
+description: "Update an existing link's configuration."
+---
+
+## Path Parameters
+
+<ParamField path="linkId" type="string" required>
+  The unique identifier of the link.
+</ParamField>
+
+## Body Parameters
+
+<ParamField body="url" type="string">
+  The new destination URL.
+</ParamField>
+
+<ParamField body="archived" type="boolean">
+  Whether the link should be archived.
+</ParamField>
+
+<ParamField body="tags" type="array">
+  The new set of tags. Note: This overwrites existing tags.
+</ParamField>
+
+## Code Examples
+
+```bash cURL
+curl --request PUT \
+  --url https://linkryse.com/v1/links/link_123 \
+  --header 'Authorization: Bearer sk_live_...' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "url": "https://bing.com",
+    "archived": true
+  }'
+```
+
+```javascript Node.js
+const updatedLink = await linkryse.links.update('link_123', {
+  url: 'https://bing.com',
+  archived: true
+});
+```

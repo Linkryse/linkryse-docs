@@ -1,0 +1,26 @@
+---
+title: "Invite Member"
+sidebarTitle: "Invite Member"
+api: "POST https://linkryse.com/v1/workspaces/invite"
+description: "Invite a new member to a workspace via email."
+---
+
+### Body
+
+<ParamField body="workspace_id" type="integer" required>
+  The ID of the workspace (must match the workspace you have admin rights to).
+</ParamField>
+
+<ParamField body="email" type="string" required>
+  The email address of the user to invite.
+</ParamField>
+
+<ParamField body="role" type="string" required>
+  The role to assign (`linkryse_administrator`, `linkryse_editor`, `linkryse_viewer`).
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the invitation was sent successfully.
+</ResponseField>

@@ -1,0 +1,48 @@
+---
+title: "Retrieve timeseries"
+sidebarTitle: "Retrieve timeseries"
+api: "GET https://linkryse.com/v1/analytics/timeseries"
+description: "Retrieve timeseries data for clicks."
+---
+
+## Query Parameters
+
+<ParamField query="linkId" type="string">
+  The ID of the link to retrieve analytics for.
+</ParamField>
+
+<ParamField query="interval" type="string">
+  The interval for the analytics. values: `24h`, `7d`, `30d`, `90d`. Defaults to `30d`.
+</ParamField>
+
+## Response
+
+Returns an array of objects, each containing a `start` (timestamp) and `clicks` (count).
+
+```json
+[
+  {
+    "start": "2023-11-01T00:00:00.000Z",
+    "clicks": 50
+  },
+  {
+    "start": "2023-11-02T00:00:00.000Z",
+    "clicks": 120
+  }
+]
+```
+
+## Code Examples
+
+```bash cURL
+curl --request GET \
+  --url 'https://linkryse.com/v1/analytics/timeseries?linkId=link_123&interval=24h' \
+  --header 'Authorization: Bearer sk_live_...'
+```
+
+```javascript Node.js
+const timeseries = await linkryse.analytics.timeseries({
+  linkId: 'link_123',
+  interval: '24h'
+});
+```

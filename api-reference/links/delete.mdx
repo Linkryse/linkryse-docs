@@ -1,0 +1,30 @@
+---
+title: "Delete a link"
+sidebarTitle: "Delete a link"
+api: "DELETE https://linkryse.com/v1/links/{linkId}"
+description: "Permanently delete a link."
+---
+
+## Path Parameters
+
+<ParamField path="linkId" type="string" required>
+  The unique identifier of the link.
+</ParamField>
+
+## Response
+
+<ResponseField name="id" type="string">
+  The ID of the deleted link.
+</ResponseField>
+
+## Code Examples
+
+```bash cURL
+curl --request DELETE \
+  --url https://linkryse.com/v1/links/link_123 \
+  --header 'Authorization: Bearer sk_live_...'
+```
+
+```javascript Node.js
+await linkryse.links.delete('link_123');
+```

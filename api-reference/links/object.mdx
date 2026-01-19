@@ -1,0 +1,76 @@
+---
+title: "The Link Object"
+sidebarTitle: "The Link Object"
+description: "The full schema of a Link object returned by the API."
+---
+
+The Link object represents a shortened URL in your workspace. It contains configuration for redirection, analytics, and metadata.
+
+## Schema
+
+<ResponseField name="id" type="string" required>
+  The unique ID of the link.
+</ResponseField>
+
+<ResponseField name="domain" type="string" required>
+  The domain of the link (e.g. `dub.sh`).
+</ResponseField>
+
+<ResponseField name="key" type="string" required>
+  The short key of the link (e.g. `github`).
+</ResponseField>
+
+<ResponseField name="url" type="string" required>
+  The destination URL where the short link redirects to.
+</ResponseField>
+
+<ResponseField name="archived" type="boolean">
+  Whether the link is archived. Archived links still work but don't show up in the dashboard.
+</ResponseField>
+
+<ResponseField name="publicStats" type="boolean">
+  Whether the link has public statistics enabled.
+</ResponseField>
+
+<ResponseField name="tags" type="array">
+  The tags assigned to the link.
+</ResponseField>
+
+<ResponseField name="clicks" type="number">
+  The number of clicks on the link.
+</ResponseField>
+
+<ResponseField name="leads" type="number">
+  The number of leads collected via the link.
+</ResponseField>
+
+<ResponseField name="sales" type="number">
+  The number of sales collected via the link.
+</ResponseField>
+
+<ResponseField name="createdAt" type="string">
+  The date the link was created.
+</ResponseField>
+
+<ResponseField name="updatedAt" type="string">
+  The date the link was last updated.
+</ResponseField>
+
+## Example
+
+```json
+{
+  "id": "link_clj8...",
+  "domain": "dub.sh",
+  "key": "github",
+  "url": "https://github.com/dubinc/dub",
+  "archived": false,
+  "publicStats": false,
+  "tags": [],
+  "clicks": 4521,
+  "leads": 120,
+  "sales": 5,
+  "createdAt": "2023-11-07T14:00:00.000Z",
+  "updatedAt": "2023-11-07T14:00:00.000Z"
+}
+```

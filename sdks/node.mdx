@@ -1,0 +1,56 @@
+---
+title: "Node.js SDK"
+sidebarTitle: "Node.js"
+description: "Install and use the official Linkryse Node.js SDK."
+---
+
+The Linkryse Node.js SDK is the easiest way to interact with the Linkryse API from your Node.js applications.
+
+## Installation
+
+Install the package via npm or yarn:
+
+```bash
+npm install @linkryse/sdk
+# or
+yarn add @linkryse/sdk
+```
+
+## Initialization
+
+Initialize the client with your API key:
+
+```javascript
+import { Linkryse } from '@linkryse/sdk';
+
+const linkryse = new Linkryse({
+  apiKey: 'sk_live_...'
+});
+```
+
+## Usage
+
+Once initialized, you can use the client to interact with all API resources.
+
+### Create a Link
+
+```javascript
+const link = await linkryse.links.create({
+  url: 'https://google.com',
+  domain: 'dub.sh',
+  key: 'my-link'
+});
+
+console.log(link.shortLink); // https://dub.sh/my-link
+```
+
+### Get Analytics
+
+```javascript
+const stats = await linkryse.analytics.clicks({
+  linkId: link.id,
+  interval: '7d'
+});
+
+console.log(stats);
+```

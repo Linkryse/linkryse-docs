@@ -1,0 +1,50 @@
+---
+title: "Introduction"
+description: "Welcome to the Linkryse API documentation."
+---
+
+<img
+  className="block dark:hidden mb-8"
+  src="/images/hero-light.png"
+  alt="Linkryse API"
+/>
+<img
+  className="hidden dark:block mb-8"
+  src="/images/hero-dark.png"
+  alt="Linkryse API"
+/>
+
+Linkryse is the modern link management infrastructure for marketing teams. We help you create, track, and optimize every click. 
+
+Our API allows you to build powerful integrations, programmatically create short links, and retrieve granular analytics data.
+
+## Base URL
+
+The Linkryse API is built on REST principles and is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.
+
+The Base URL for all API endpoints is:
+
+```bash
+https://linkryse.com/v1
+```
+
+## Getting Started
+
+To start using the API, you'll need an API Key. You can generate one from your [Linkryse Dashboard](https://linkryse.com/dashboard/settings/api-keys).
+
+<CardGroup cols={2}>
+  <Card
+    title="Authentication"
+    icon="lock"
+    href="/introduction/authentication"
+  >
+    Learn how to authenticate your API requests.
+  </Card>
+  <Card
+    title="Create a Link"
+    icon="link"
+    href="/api-reference/links/create"
+  >
+    Programmatically create your first short link.
+  </Card>
+</CardGroup>

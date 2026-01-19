@@ -1,0 +1,18 @@
+---
+title: "Delete Domain"
+sidebarTitle: "Delete Domain"
+api: "DELETE https://linkryse.com/v1/domains-v2/{id}"
+description: "Remove a custom domain from your workspace."
+---
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The ID of the domain to delete.
+</ParamField>
+
+### Response
+
+<ResponseField name="success" type="boolean">
+  Whether the deletion was successful.
+</ResponseField>

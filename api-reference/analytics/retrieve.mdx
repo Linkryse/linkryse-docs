@@ -1,0 +1,47 @@
+---
+title: "Retrieve clicks"
+sidebarTitle: "Retrieve clicks"
+api: "GET https://linkryse.com/v1/analytics/clicks"
+description: "Retrieve click metrics for your links."
+---
+
+## Query Parameters
+
+<ParamField query="linkId" type="string">
+  The ID of the link to retrieve analytics for.
+</ParamField>
+
+<ParamField query="domain" type="string">
+  The domain to retrieve analytics for (e.g. `dub.sh`).
+</ParamField>
+
+<ParamField query="key" type="string">
+  The key (slug) of the link.
+</ParamField>
+
+<ParamField query="interval" type="string">
+  The interval for the analytics. values: `24h`, `7d`, `30d`, `90d`, `ytd`, `all`. Defaults to `30d`.
+</ParamField>
+
+<ParamField query="groupBy" type="string">
+  The parameter to group the analytics by. values: `count`, `browser`, `os`, `referer`, `country`, `device`. Defaults to `count`.
+</ParamField>
+
+## Response
+
+Returns a JSON object containing the requested analytics data.
+
+## Code Examples
+
+```bash cURL
+curl --request GET \
+  --url 'https://linkryse.com/v1/analytics/clicks?linkId=link_123&interval=7d' \
+  --header 'Authorization: Bearer sk_live_...'
+```
+
+```javascript Node.js
+const analytics = await linkryse.analytics.clicks({
+  linkId: 'link_123',
+  interval: '7d'
+});
+```

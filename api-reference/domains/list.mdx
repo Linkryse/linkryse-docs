@@ -1,0 +1,39 @@
+---
+title: "List Domains"
+sidebarTitle: "List Domains"
+api: "GET https://linkryse.com/v1/domains-v2"
+description: "Retrieve a list of custom domains attached to the current workspace."
+---
+
+### Response
+
+<ResponseField name="domains" type="array">
+  <Expandable title="Domain Object">
+    <ResponseField name="id" type="string">
+      The unique identifier for the domain.
+    </ResponseField>
+    <ResponseField name="domain_name" type="string">
+      The domain name (e.g., `link.mysite.com`).
+    </ResponseField>
+    <ResponseField name="status" type="string">
+      The verification status (`active`, `pending_verification`, `invalid`).
+    </ResponseField>
+    <ResponseField name="verification_record_name" type="string">
+      The TXT record name required for verification.
+    </ResponseField>
+    <ResponseField name="verification_record_value" type="string">
+      The TXT record value required for verification.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="usage" type="object">
+  <Expandable title="Usage Object">
+    <ResponseField name="used" type="integer">
+      Current count of domains.
+    </ResponseField>
+    <ResponseField name="limit" type="integer">
+      Maximum allowed domains for this workspace plan.
+    </ResponseField>
+  </Expandable>
+</ResponseField>

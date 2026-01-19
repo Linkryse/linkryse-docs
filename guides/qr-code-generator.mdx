@@ -1,0 +1,45 @@
+---
+title: "QR Code Generator"
+description: "Learn how to generate QR codes for your short links using the Linkryse API."
+---
+
+In this guide, we will build a simple Node.js script that creates a short link and then generates a QR code for it.
+
+## Prerequisites
+
+-   Node.js installed
+-   A Linkryse API Key
+-   `qrcode` npm package
+
+```bash
+npm install @linkryse/sdk qrcode
+```
+
+## The Script
+
+```javascript
+const { Linkryse } = require('@linkryse/sdk');
+const QRCode = require('qrcode');
+const fs = require('fs');
+
+const linkryse = new Linkryse({ apiKey: 'sk_live_...' });
+
+async function generate() {
+  // 1. Create a Short Link
+  const link = await linkryse.links.create({
+    url: 'https://example.com/promotion',
+    key: 'promo-qrcode'
+  });
+
+  console.log(`Link created: ${link.shortLink}`);
+
+  // 2. Generate QR Code
+  // Linkryse short links automatically support QR code generation by appending ?qr=1
+  // But here is how to do it manually for custom processing:
+  
+  await QRCode.toFile('qr.png', link.shortLink);
+  console.log('QR code saved to qr.png');
+}
+
+generate();
+```

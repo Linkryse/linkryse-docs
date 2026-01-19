@@ -1,0 +1,44 @@
+---
+title: "Retrieve a link"
+sidebarTitle: "Retrieve a link"
+api: "GET https://linkryse.com/v1/links/{linkId}/details"
+description: "Retrieve a single link by its unique ID."
+---
+
+## Path Parameters
+
+<ParamField path="linkId" type="string" required>
+  The unique identifier of the link.
+</ParamField>
+
+<ResponseExample>
+```json Response
+{
+  "id": "<string>",
+  "title": "<string>",
+  "short_code": "<string>",
+  "long_url": "<string>",
+  "description": "<string>",
+  "created_at": "<string>",
+  "domain": "<string>",
+  "status": "<string>",
+  "track_conversions": "<string>",
+  "tags": [],
+  "short_url": "<string>",
+  "created_at_formatted": "<string>"
+}
+```
+</ResponseExample>
+
+## Code Examples
+
+```bash cURL
+curl --request GET \
+  --url https://linkryse.com/v1/links/link_123 \
+  --header 'Authorization: Bearer sk_live_...'
+```
+
+```javascript Node.js
+const link = await linkryse.links.get('link_123');
+console.log(link);
+```
